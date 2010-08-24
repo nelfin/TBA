@@ -6,6 +6,9 @@ public class Monster {
 	Actor actor;
 	Inventory inventory;
 	
+        public Monster() {
+        }
+
 	public boolean move(){
 		return true;
 	}
