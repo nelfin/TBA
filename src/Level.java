@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Level {
-	static final int xdim = 20;
-	static final int ydim = 20;
-	int map[][];
-	ArrayList<Monster> monsters;
+        static final int xdim = 20;
+        static final int ydim = 20;
+        int map[][];
+        ArrayList<Monster> monsters;
         HashMap<Integer,Object> gazetteer;
 
         public Level() {
@@ -26,10 +26,11 @@ public class Level {
             //level.map[0][0] = player;
             for (int i = 4; i < 8; i++) {
                 for (int j = 4; j < 8; j++) {
-                    Monster zombie = new Zombie();
+                    int id = i+j*ydim;
+                    Monster zombie = new Zombie(id);
                     level.monsters.add(zombie);
-                    level.gazetteer.put(i+j*ydim,zombie);
-                    level.map[i][j] = i + j*ydim;
+                    level.gazetteer.put(id,zombie);
+                    level.map[i][j] = id;
                 }
             }
             return level;
